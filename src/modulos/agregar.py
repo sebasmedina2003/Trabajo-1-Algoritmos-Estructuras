@@ -1,5 +1,5 @@
 from decouple import config
-import auxiliar
+import modulos.auxiliar as auxiliar
 
 def creacionProducto() -> None:
     """

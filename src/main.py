@@ -1,5 +1,8 @@
 from decouple import config
-from modulos import actualizar, consultar, agregar, listar
+import modulos.actualizar as actualizar
+import modulos.agregar as agregar
+import modulos.consultar as consultar
+import modulos.listar as listar
 
         
 def menu() -> None:
@@ -28,6 +31,7 @@ def menu() -> None:
         if not error:
             if opcion == 1:
                 agregar.creacionProducto()
+                print("Producto creado Exitosamente\n")
             elif opcion == 2:
                 pass
             elif opcion == 3:
@@ -39,5 +43,4 @@ def menu() -> None:
                 break
 
 if __name__ == "__main__":
-    
     menu()
