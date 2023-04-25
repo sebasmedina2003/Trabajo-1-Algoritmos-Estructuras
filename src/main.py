@@ -1,81 +1,5 @@
 from decouple import config
-
-def lecturaDatos() -> list:
-    """
-    Funcion para la lectura de los datos para la creacion y actualizacion de un producto
-    """
-    #Leemos los datos de consola
-    nombre = input("Ingrese el nombre del producto: ")
-    descripcion = input("Ingrese una descripcion corta del producto: ")
-    categoria = input("Ingrese la categoria del producto: ")
-
-    while True:
-        try:
-            precio = float(input("Ingrese el precio del producto: "))
-            break
-        except:
-            print("Ingrese un precion valido\n")
-        
-    imagen = input("Ingrese el path de la imagen: ")
-    sku = input("Ingrese el SKU del producto: ")
-
-    while True:
-        try:
-            cantidad = float(input("Ingrese la cantidad de articulos disponibles: "))
-            break
-        except:
-            print("Ingrese una cantidad valdia\n")
-    
-    while True:
-        try:
-            peso = float(input("Ingrese el peso del producto: "))
-            break
-        except:
-            print("Ingrese un peso valido\n")
-    
-    while True:
-        dimensiones = input("Ingrese las dimensionenes de su producto, formato anchoXalto: ")
-        if len(dimensiones.split("X")) == 2:
-            break
-    
-    return [nombre, descripcion, categoria, precio, imagen, sku, cantidad, peso, dimensiones]
-        
-
-def creacionProducto() -> None:
-    """
-    Se llama a la funcion de lectura de datos para la creacion de un producto
-    """
-    print("Ingrese los siguientes datos para la creacion de su producto\n")
-    producto = lecturaDatos()
-
-    #Leemos la fecha de creacion del producto
-    while True:
-        fecha = input("Ingrese fecha de creacion del producto, formado dia-mes-año: ")
-        aux = fecha.split("-")
-        error = False
-        if len(aux) == 3:
-            for valores in aux:
-                if not error:
-                    try:
-                        int(valores)
-                    except:
-                        print("No ha ingresado numeros en los campos")
-                        error = True
-        if not error:
-            break
-
-    fechaModificacion = "Sin modificacion"
-    producto.append(fecha)
-    producto.append(fechaModificacion)
-
-    text=""
-    for valores in producto:
-        text += f"{valores},"
-    text = text[0:len(text)-1]
-    text +="\n"
-    archivo = open(config("NAME_CSV"),"w",newline="")
-    archivo.write(text)
-    archivo.close()
+from modulos import actualizar, consultar, agregar, listar
 
         
 def menu() -> None:
@@ -103,7 +27,7 @@ def menu() -> None:
         #Seleccionamos la opcion
         if not error:
             if opcion == 1:
-                creacionProducto()
+                agregar.creacionProducto()
             elif opcion == 2:
                 pass
             elif opcion == 3:
