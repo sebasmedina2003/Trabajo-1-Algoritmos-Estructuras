@@ -1,5 +1,4 @@
 from decouple import config
-from pandas import DataFrame, read_csv
 
 def lecturaDatos() -> list:
     """
