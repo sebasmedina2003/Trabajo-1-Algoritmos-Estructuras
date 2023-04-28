@@ -1,2 +1,3 @@
 env/
 src/modulos/__pycache__/
+.vscode/
