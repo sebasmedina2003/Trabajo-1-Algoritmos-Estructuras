@@ -5,9 +5,7 @@ import modulos.listar as listar
 
 
 def menu() -> None:
-    """
-    Funcion que muestra el menu principal, consta del bucle principal y la seleccion de opciones
-    """
+    # Funcion que muestra el menu principal, consta del bucle principal y la seleccion de opciones
     listaProductos = []
     datosCargados = False
     while True:
