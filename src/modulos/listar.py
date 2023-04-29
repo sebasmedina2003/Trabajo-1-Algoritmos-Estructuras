@@ -1,16 +1,62 @@
 def listarProductos(lista: list[str]) -> None:
-    # Mostrar un submenu para elegir la opcion del reporte al listar 
     print("+---------------------------+ Opciones de listado +---------------------------+")
-    # Listar los productos de forma ascendente segun la cantidad- quicksort
     print("| 1-. Según su cantidad (ascendente - quicksort)                              |") 
-    # De forma descendente según su peso en un rango de fecha de actualizacion introducido por el usuario - mergesort
     print("| 2-. Según su peso (descendente - mergesort)                                 |")
-    # De forma ascendente o descendente - shellsort -> Agregar submenú para determinar el orden
     print("| 3-. Según su fecha de creación (ascendente/descendente - shellsort)         |")
-    # De forma ascendente segun su cantidad - heapsort
     print("| 4-. Segun su cantidad (ascendente - heapsort)                               |")
-    # de forma ascendente o descendente segun sus dimensiones y antiguedad en un rango de fecha - cualquier algoritmo
     print("| 5-. Segun sus dimensiones y antigüedad (ascendente/descendente - algoritmo) |")
+    print("| 6-. Salir                                                                   |")
     print("+-----------------------------------------------------------------------------+")
+    # Captura de la opcion de listado
+    try:
+        opcion = int(input("-> Opcion deseada: "))
+        error = opcion not in range(1, 7)
+        print("-> Ha ingresado un numero fuera de rango\n" if error else "")
+    except:
+        error = True
+        print("-> No se ha ingresado un numero, seleccione una opcion valida\n")
 
-# Crear las funciones de listado segun el tipo y el algoritmo de ordenamiento
+    # Seleccionamos la opcion
+    if not error:
+        if opcion == 1:
+            quicksort(lista)
+        elif opcion == 2:
+            mergesort(lista)
+        elif opcion == 3:
+            shellsort(lista)
+        elif opcion == 4:
+            heapsort(lista)
+        elif opcion == 5: 
+            algoritmo(lista)
+        else:
+            pass
+            
+
+"""Funciones de listado de productos segun las indicaciones"""
+def quicksort(productos):
+    # Ordenar ascendentemente los productos segun la cantidad
+    print(productos)
+
+def mergesort(productos):
+    # Ordernar descendentemente segun su peso en un rango de fecha de actualizacion introducido por el usuario
+    print(productos)
+
+def shellsort(productos):
+    # De forma ascendente o descendente 
+    print("+---+ Opciones de listado +---+")
+    print("| 1-. Ascendente              |")
+    print("| 2-. Descendente             |")
+    print("+-----------------------------+")
+    print(productos)
+
+def heapsort(productos):
+    # Ascendentemente sgun su cantidad
+    print(productos)
+
+def algoritmo(productos):
+    # Ascendente o descendente segun sus dimensiones y antiguedad en un rango de fecha
+    print("+---+ Opciones de listado +---+")
+    print("| 1-. Ascendente              |")
+    print("| 2-. Descendente             |")
+    print("+-----------------------------+")
+    print(productos)

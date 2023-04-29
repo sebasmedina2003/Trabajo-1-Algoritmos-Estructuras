@@ -7,3 +7,4 @@ def creacionProducto() -> None:
     print("Ingrese los siguientes datos para la creacion de su producto\n")
     producto = auxiliar.lecturaDatos() # Se movieron todas las capturas del producto en el modulo auxiliar
     return producto
+    
