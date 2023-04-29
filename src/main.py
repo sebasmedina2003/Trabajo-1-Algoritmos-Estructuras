@@ -17,7 +17,7 @@ def menu() -> None:
         # Verificamos si la opcion es un numero y esta entre el rango de opciones
         try:
             opcion = int(input("\nOpción deseada -> "))
-            error = opcion not in range(1, 7)
+            error = not opcion in range(1, 7)
             print("-> Ha ingresado un numero fuera de rango\n" if error else "")
         except:
             error = True
@@ -42,6 +42,7 @@ def menu() -> None:
             else:
                 print("-> Saliendo del programa...")
                 break
+
 
 if __name__ == "__main__":
     menu()
