@@ -22,6 +22,7 @@ def lecturaDatos() -> list:
         aux = sku.split("-")
         if len(aux) == 3:
             break
+        print("No ha ingresado un codigo SKU valido")
 
     # Cantidad de articulos disponibles
     while True:
