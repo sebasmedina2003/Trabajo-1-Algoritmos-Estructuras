@@ -10,14 +10,14 @@ def menu() -> None:
     datosCargados = False
     while True:
         error = False
-        print("+--------------------------------+ Menu de opciones +--------------------------------+")
-        print("| 1-.Crear | 2-.Modificar | 3-.Consultar | 4-.Listar | 5-.Datos de Prueba | 6-.Salir |")
-        print("+------------------------------------------------------------------------------------+")
+        print("+-------------------------+ Menu de opciones +------------------------+")
+        print("| 1-.Crear | 2-.Modificar | 3-.Listar | 4-.Datos de Prueba | 5-.Salir |")
+        print("+---------------------------------------------------------------------+")
 
         # Verificamos si la opcion es un numero y esta entre el rango de opciones
         try:
             opcion = int(input("\nOpción deseada -> "))
-            error = not opcion in range(1, 7)
+            error = not opcion in range(1, 6)
             print("-> Ha ingresado un numero fuera de rango\n" if error else "")
         except:
             error = True

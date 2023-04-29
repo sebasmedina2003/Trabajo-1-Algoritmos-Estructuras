@@ -1,25 +1,42 @@
 # Funcion para la captura de los atributos de un producto
 def lecturaDatos() -> list:
+    formato = {
+        "Nombre": "",
+        "Descripcion": "",
+        "Categoria": "",
+        "Precio": 0,
+        "Imagen": "",
+        "SKU": "",
+        "Cantidad": 0,
+        "Peso": 0,
+        "Dimensiones": "",
+        "Fecha Creacion": "",
+        "Fecha Modificacion": "Sin modificaciones"
+    }
     # Leemos los datos de consola
-    nombre = input("Ingrese el nombre del producto: ")  # Nombre del producto
+    formato["Nombre"] = input(
+        "Ingrese el nombre del producto: ")  # Nombre del producto
     # Descripcion del producto
-    descripcion = input("Ingrese una descripcion corta del producto: ")
+    formato["Descripcion"] = input(
+        "Ingrese una descripcion corta del producto: ")
     # Categoria del producto
-    categoria = input("Ingrese la categoria del producto: ")
+    formato["Categoria"] = input("Ingrese la categoria del producto: ")
     # Precio del producto
     while True:
         try:
-            precio = float(input("Ingrese el precio del producto: "))
+            formato["Precio"] = float(
+                input("Ingrese el precio del producto: "))
             break
         except:
             print("Ingrese un precion valido\n")
 
     # Direccion de imagen del producto
-    imagen = input("Ingrese el path de la imagen: ")
+    formato["Imagen"] = input("Ingrese el path de la imagen: ")
 
     while True:
-        sku = input("Ingrese el SKU del producto: ")  # SKU del producto
-        aux = sku.split("-")
+        formato["SKU"] = input(
+            "Ingrese el SKU del producto: ")  # SKU del producto
+        aux = formato["SKU"].split("-")
         if len(aux) == 3:
             break
         print("-> Formato incorrecto - (XXX-XXX-XXX o XXXX-XXXX-XXXX)")
@@ -27,7 +44,7 @@ def lecturaDatos() -> list:
     # Cantidad de articulos disponibles
     while True:
         try:
-            cantidad = float(
+            formato["Cantidad"] = float(
                 input("Ingrese la cantidad de articulos disponibles: "))
             break
         except:
@@ -35,35 +52,18 @@ def lecturaDatos() -> list:
     # Peso del producto
     while True:
         try:
-            peso = float(input("Ingrese el peso del producto: "))
+            formato["Peso"] = float(input("Ingrese el peso del producto: "))
             break
         except:
             print("Ingrese un peso valido\n")
     # Dimensiones del producto
     while True:
-        dimensiones = input(
+        formato["Dimensiones"] = input(
             "Ingrese las dimensionenes de su producto (anchoXalto): ")
-        if "x" in dimensiones and len(dimensiones.split("x")) == 2:
+        if "x" in formato["Dimensiones"] and len(formato["Dimensiones"].split("x")) == 2:
             break
-        elif "X" in dimensiones and len(dimensiones.split("X")) == 2:
+        elif "X" in formato["Dimensiones"] and len(formato["Dimensiones"].split("X")) == 2:
             break
 
-    # Leemos la fecha de creacion del producto
-    while True:
-        fecha = input(
-            "Ingrese fecha de creacion del producto, formado dia-mes-año: ")
-        aux = fecha.split("-")
-        error = False
-        if len(aux) == 3:
-            for valores in aux:
-                if not error:
-                    try:
-                        int(valores)
-                    except:
-                        print("No ha ingresado numeros en los campos")
-                        error = True
-            if not error:
-                break
-
-    # Retornar el producto en un vector, indicando como ultimo parametro "sin modificacion"
-    return [nombre, descripcion, categoria, precio, imagen, sku, cantidad, peso, dimensiones, fecha, "Sin modificacion"]
+    # Retornar el diccionario, indicando como ultimo parametro "sin modificacion"
+    return formato
