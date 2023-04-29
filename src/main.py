@@ -31,15 +31,13 @@ def menu() -> None:
             elif opcion == 2:
                 pass
             elif opcion == 3:
-                pass
-            elif opcion == 4:
                 listar.listarProductos(listaProductos)
-            elif opcion == 5:
+            elif opcion == 4:
                 if not datosCargados:
                     pass
                 else:
                     print("Ya se han cargado los datos del csv")
-            else:
+            elif opcion == 5:
                 print("-> Saliendo del programa...")
                 break
 
