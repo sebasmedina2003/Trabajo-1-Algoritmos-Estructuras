@@ -1,6 +1,5 @@
 import modulos.actualizar as actualizar
 import modulos.agregar as agregar
-import modulos.consultar as consultar
 import modulos.listar as listar
 
 
@@ -25,19 +24,43 @@ def menu() -> None:
 
         # Seleccionamos la opcion
         if not error:
-            if opcion == 1:
-                listaProductos.append(agregar.creacionProducto())
-                print("Producto creado Exitosamente\n")
-            elif opcion == 2:
-                pass
-            elif opcion == 3:
-                listar.listarProductos(listaProductos)
-            elif opcion == 4:
+            if opcion == 1: # Crear producto
+                producto = agregar.creacionProducto()
+                listaProductos.append(producto)
+                print("\n+-----+ Producto creado Exitosamente +-----+")
+                print(" Nombre: " + producto["Nombre"])
+                print(" Descripcion: "+ producto["Descripcion"])
+                print(" Categoria: " + producto["Categoria"])
+                print(" Precio: " + str(producto["Precio"]))
+                print(" Imagen: " + str(producto["Imagen"]))
+                print(" SKU: " + producto["SKU"])
+                print(" Cantidad: " + str(producto["Cantidad"]))
+                print(" Peso: " + str(producto["Peso"]))
+                print(" Dimensiones: " + producto["Dimensiones"])
+                print(" Fecha Creacion: " + producto["Fecha Creacion"])
+                print(" Fecha Modificacion: " + producto["Fecha Modificacion"])
+                print("+------------------------------------------+\n")
+
+            elif opcion == 2: # Modificar Producto
+                if len(listaProductos) != 0:
+                    actualizar.actualizar(listaProductos)
+                else:
+                    print("-> No existen productos registrados...\n")
+
+            elif opcion == 3: # Listar productos
+                if len(listaProductos) != 0:
+                    listar.listarProductos(listaProductos)
+                else:
+                    print("-> No existen productos registrados...\n")
+                
+
+            elif opcion == 4: # Cargar datos de prueba
                 if not datosCargados:
                     pass
                 else:
-                    print("Ya se han cargado los datos del csv")
-            elif opcion == 5:
+                    print("-> Ya se han cargado los datos del CSV...\n")
+
+            elif opcion == 5: # Salir del programa
                 print("-> Saliendo del programa...")
                 break
 
