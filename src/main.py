@@ -24,12 +24,12 @@ def menu() -> None:
 
         # Seleccionamos la opcion
         if not error:
-            if opcion == 1: # Crear producto
+            if opcion == 1:  # Crear producto
                 producto = agregar.creacionProducto()
                 listaProductos.append(producto)
                 print("\n+-----+ Producto creado Exitosamente +-----+")
                 print(" Nombre: " + producto["Nombre"])
-                print(" Descripcion: "+ producto["Descripcion"])
+                print(" Descripcion: " + producto["Descripcion"])
                 print(" Categoria: " + producto["Categoria"])
                 print(" Precio: " + str(producto["Precio"]))
                 print(" Imagen: " + str(producto["Imagen"]))
@@ -41,26 +41,26 @@ def menu() -> None:
                 print(" Fecha Modificacion: " + producto["Fecha Modificacion"])
                 print("+------------------------------------------+\n")
 
-            elif opcion == 2: # Modificar Producto
+            elif opcion == 2:  # Modificar Producto
                 if len(listaProductos) != 0:
                     actualizar.actualizar(listaProductos)
                 else:
                     print("-> No existen productos registrados...\n")
 
-            elif opcion == 3: # Listar productos
+            elif opcion == 3:  # Listar productos
                 if len(listaProductos) != 0:
                     listar.listarProductos(listaProductos)
                 else:
                     print("-> No existen productos registrados...\n")
-                
 
-            elif opcion == 4: # Cargar datos de prueba
+            elif opcion == 4:  # Cargar datos de prueba
                 if not datosCargados:
-                    pass
+                    datosCargados = True
+                    listaProductos = agregar.cargaDatos(listaProductos)
                 else:
                     print("-> Ya se han cargado los datos del CSV...\n")
 
-            elif opcion == 5: # Salir del programa
+            elif opcion == 5:  # Salir del programa
                 print("-> Saliendo del programa...")
                 break
 
