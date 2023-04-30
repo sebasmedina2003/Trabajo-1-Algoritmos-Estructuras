@@ -40,7 +40,7 @@ def cargaDatos(lista: list[dict]) -> list[dict]:
     }
     for lineas in archivo:
         aux = lineas.split(",")
-        print("Agregando " + aux[0])
+        print("-> Agregando " + aux[0])
         formato["Nombre"] = aux[0]
         formato["Descripcion"] = aux[1]
         formato["Categoria"] = aux[2]
