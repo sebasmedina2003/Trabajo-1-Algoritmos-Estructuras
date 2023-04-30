@@ -39,19 +39,19 @@ def cargaDatos(lista: list[dict]) -> list[dict]:
         "Fecha Modificacion": "Sin modificaciones"
     }
     for lineas in archivo:
-        lista = lineas.split(",")
-        print("Agregando " + lista[0])
-        formato["Nombre"] = lista[0]
-        formato["Descripcion"] = lista[1]
-        formato["Categoria"] = lista[2]
-        formato["Precio"] = lista[3]
-        formato["Imagen"] = lista[4]
-        formato["SKU"] = lista[5]
-        formato["Cantidad"] = lista[6]
-        formato["Peso"] = lista[7]
-        formato["Dimensiones"] = lista[8]
-        formato["Fecha Creacion"] = lista[9]
-        formato["Fecha Modificacion"] = lista[10]
+        aux = lineas.split(",")
+        print("Agregando " + aux[0])
+        formato["Nombre"] = aux[0]
+        formato["Descripcion"] = aux[1]
+        formato["Categoria"] = aux[2]
+        formato["Precio"] = aux[3]
+        formato["Imagen"] = aux[4]
+        formato["SKU"] = aux[5]
+        formato["Cantidad"] = aux[6]
+        formato["Peso"] = aux[7]
+        formato["Dimensiones"] = aux[8]
+        formato["Fecha Creacion"] = aux[9]
+        formato["Fecha Modificacion"] = aux[10].replace("\n", "")
         lista.append(formato)
 
     print("\n---------------Carga de archivo de prueba terminada---------------\n")
