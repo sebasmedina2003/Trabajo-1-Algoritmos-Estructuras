@@ -41,6 +41,8 @@ def lecturaDatos() -> dict:
                 break
             else:
                 print("-> Formato incorrecto - (XXX-XXX-XXX o XXXX-XXXX-XXXX)")
+        else:
+            print("-> Formato incorrecto - (XXX-XXX-XXX o XXXX-XXXX-XXXX)")
 
 
     # Cantidad de articulos disponibles
@@ -60,13 +62,19 @@ def lecturaDatos() -> dict:
             print("-> Ingrese un peso valido\n")
     
     # Dimensiones del producto
+    permitido = ["0","1","2","3","4","5","6","7","8","9", "x", "X"]
     while True:
         formato["Dimensiones"] = input(">>> Ingrese las dimensionenes de su producto (anchoXalto): ")
-        if "x" in formato["Dimensiones"] and len(formato["Dimensiones"].split("x")) == 2:
-            break
-        elif "X" in formato["Dimensiones"] and len(formato["Dimensiones"].split("X")) == 2:
-            break
-        else:
-            print("-> Formato de dimensiones incorrecto (anchoXalto)...")
-
+        if "x" in formato["Dimensiones"] or "X" in formato["Dimensiones"]:
+            if len(formato["Dimensiones"].split("x")) == 2 or len(formato["Dimensiones"].split("X")) == 2:
+                error = False
+                for i in list(formato["Dimensiones"]):
+                    if i not in permitido:
+                        error = True
+                if not error:
+                    break
+                else:
+                    print("-> Informacion incorrecta... ")
+            else:
+                print("-> Formato de dimensiones incorrecto (anchoXalto)...")
     return formato

@@ -1,3 +1,4 @@
+
 def listarProductos(lista: list[str]) -> None:
     print("+---------------------------+ Opciones de listado +---------------------------+")
     print("| 1-. Según su cantidad (ascendente - quicksort)                              |") 
@@ -47,7 +48,7 @@ def shellsort(productos):
     print("| 1-. Ascendente              |")
     print("| 2-. Descendente             |")
     print("+-----------------------------+")
-    print(productos)
+    
 
 def heapsort(productos):
     # Ascendentemente sgun su cantidad
@@ -59,4 +60,3 @@ def algoritmo(productos):
     print("| 1-. Ascendente              |")
     print("| 2-. Descendente             |")
     print("+-----------------------------+")
-    print(productos)
