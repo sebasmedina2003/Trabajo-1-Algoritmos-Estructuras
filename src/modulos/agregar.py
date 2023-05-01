@@ -2,6 +2,7 @@ import modulos.auxiliar as auxiliar
 import datetime
 import time
 
+
 def creacionProducto() -> None:
     """
     Se llama a la funcion de lectura de datos para la creacion de un producto
@@ -24,10 +25,10 @@ def creacionProducto() -> None:
 
 
 def cargaDatos(lista: list[dict]) -> list[dict]:
-    archivo = open("archivos/registros.csv", "r")
+    archivo = open("src/archivos/registros.csv", "r")
     print(">>> Cargando datos de prueba...")
     for lineas in archivo:
-        time.sleep(1)
+        time.sleep(0.5)
         formato = {
             "Nombre": "",
             "Descripcion": "",
