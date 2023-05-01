@@ -2,8 +2,12 @@ import modulos.actualizar as actualizar
 import modulos.agregar as agregar
 import modulos.listar as listar
 
+<<<<<<< HEAD
 #Prueba 
 #Prueba 2
+=======
+
+>>>>>>> baf06cee52023c18440f7e88f7041e8d3b0d64b9
 def menu() -> None:
     # Funcion que muestra el menu principal, consta del bucle principal y la seleccion de opciones
     listaProductos = []
