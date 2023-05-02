@@ -2,6 +2,7 @@ import modulos.auxiliar as auxiliar
 import datetime
 import time
 
+
 def creacionProducto() -> None:
     """
     Se llama a la funcion de lectura de datos para la creacion de un producto
