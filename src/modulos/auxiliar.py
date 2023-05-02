@@ -14,11 +14,33 @@ def lecturaDatos() -> dict:
         "Fecha Modificacion": "Sin modificaciones"
     }
     # Leemos los datos de consola
-    formato["Nombre"] = input(">>> Ingrese el nombre del producto: ")  # Nombre del producto
-    # Descripcion del producto
-    formato["Descripcion"] = input(">>> Ingrese una descripcion corta del producto: ")
-    # Categoria del producto
-    formato["Categoria"] = input(">>> Ingrese la categoria del producto: ")
+    while True : # Nombre del producto - Validacion cantidad de caracteres
+        formato["Nombre"] = input(">>> Ingrese el nombre del producto: ")  
+        if len(formato["Nombre"]) > 19:
+            print(">>> Cantidad de caracteres excedida...")
+        elif len(formato["Nombre"]) <=19 and formato["Nombre"]!="":
+            break
+        else:
+            print(">>> Ingrese el nombre del producto...")
+    
+    while True: # Descripcion del producto - Validacion cantidad de caracteres
+        formato["Descripcion"] = input(">>> Ingrese una descripcion corta del producto: ")
+        if len(formato["Descripcion"]) > 23:
+            print(">>> Cantidad de caracteres excedida...")
+        elif len(formato["Descripcion"]) <= 23 and formato["Descripcion"]!="":
+            break
+        else:
+            print(">>> Ingrese la descripcion del producto...")
+
+    while True: # Categoria del producto - Validacion cantidad de caracteres
+        formato["Categoria"] = input(">>> Ingrese la categoria del producto: ")
+        if len(formato["Categoria"]) > 15:
+            print(">>> Cantidad de caracteres excedida...")
+        elif len(formato["Categoria"]) <= 15 and formato["Categoria"]!="":
+            break
+        else:
+            print(">>> Ingrese la descripcion del producto...")
+    """ Validaciones restantes"""
     # Precio del producto
     while True:
         try:

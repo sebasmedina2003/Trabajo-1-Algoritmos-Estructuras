@@ -27,7 +27,7 @@ def cargaDatos(lista: list[dict]) -> list[dict]:
     archivo = open("archivos/registros.csv", "r")
     print(">>> Cargando datos de prueba...")
     for lineas in archivo:
-        time.sleep(1)
+        time.sleep(0.5)
         formato = {
             "Nombre": "",
             "Descripcion": "",
@@ -46,11 +46,11 @@ def cargaDatos(lista: list[dict]) -> list[dict]:
         formato["Nombre"] = aux[0]
         formato["Descripcion"] = aux[1]
         formato["Categoria"] = aux[2]
-        formato["Precio"] = int(aux[3])
+        formato["Precio"] = float(aux[3])
         formato["Imagen"] = aux[4]
         formato["SKU"] = aux[5]
         formato["Cantidad"] = int(aux[6])
-        formato["Peso"] = int(aux[7])
+        formato["Peso"] = float(aux[7])
         formato["Dimensiones"] = aux[8]
         formato["Fecha Creacion"] = aux[9]
         formato["Fecha Modificacion"] = aux[10].replace("\n", "")

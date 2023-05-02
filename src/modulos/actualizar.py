@@ -2,10 +2,15 @@ import time, datetime
 def actualizar(productos):
     # Indicar cual es el producto a modificar
     print(">>> Productos registrados...")
+    print("+" + "-"*171 + "+")
+    print("|I|       Nombre        |      Descripcion      |   Categoria   | Precio |       Imagen       |      SKU      | Cantidad |  Peso  | Dimension | Creacion |   Modificacion   | ")
+    print("+" + "-"*171 + "+")
     for producto in range(len(productos)):
-        time.sleep(1)
-        print(str(producto) + "-> " + productos[producto]["Nombre"] + " - " + productos[producto]["Descripcion"] + " - " + productos[producto]["Categoria"] + " - " + str(productos[producto]["Precio"]) +" - " + productos[producto]["Imagen"] + " - " + productos[producto]["SKU"] + " - " + str(productos[producto]["Cantidad"]) + " - " + str(productos[producto]["Peso"]) + " - " + productos[producto]["Dimensiones"] + " - " + productos[producto]["Fecha Creacion"] + " - " + productos[producto]["Fecha Modificacion"])
-    while True:
+        time.sleep(0.5)
+        print("|{:1}|{:<21}|{:<23}|{:<15}|${:<7}|{:<20}|{:<15}|{:<10}|{:<8}|{:<11}|{:<10}|{:<18}|".format(producto, productos[producto]["Nombre"], productos[producto]["Descripcion"], productos[producto]["Categoria"], str(productos[producto]["Precio"]), productos[producto]["Imagen"], productos[producto]["SKU"], str(productos[producto]["Cantidad"]), str(productos[producto]["Peso"]), productos[producto]["Dimensiones"], productos[producto]["Fecha Creacion"], productos[producto]["Fecha Modificacion"]))
+        print("+" + "-"*171 + "+")
+
+    while True: # Captura del indice del producto
         try:
             opcion = int(input("\n>>> Ingrese el indice del producto a modificar: "))
             if opcion in range(0, len(productos)):
@@ -23,21 +28,21 @@ def actualizar(productos):
         print("Atributos a modificar de " + productos[opcion]["Nombre"] + ": ")
         # Mostrar los atributos a modificar del producto
         for atributo in range(len(atributos)):
-            time.sleep(1)
+            time.sleep(0.5)
             print(str(atributo) + " - " + atributos[atributo])
         # Capturar la opcion elegida
         while True:
             try:
                 op = int(input(">>> Indice del atributo a modificar: "))
                 if op in range(0, 9):
-                    error = False
+                    error1 = False
                     break
                 else:
                     print("-> Opcion incorrecta...")                    
             except:
                 print("-> Ingrese un indice valido...")
         # Modificar el atributo del producto
-        if not error: 
+        if not error1: 
             while True:
                 producto[atributos[op]] = input("Ingrese el valor con el que desea modificar el " + atributos[op]+": ")
                 if op == 3 or op == 6 or op ==7: # Validacion para los digitos
@@ -88,3 +93,4 @@ def actualizar(productos):
 
         # Guardar el producto modificado en la lista de productos
         productos[opcion] = producto
+        print("\n+-----------------+ Producto modificado exitosamente +-----------------+\n")
