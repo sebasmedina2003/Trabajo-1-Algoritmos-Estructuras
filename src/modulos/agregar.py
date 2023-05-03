@@ -10,17 +10,12 @@ def creacionProducto() -> None:
     print("Ingrese los siguientes datos para la creacion de su producto\n")
     producto = auxiliar.lecturaDatos()
 
-    # Leemos la fecha de creacion del producto
-    while True:
-        fecha = input(
-            ">>> Ingrese fecha de creacion del producto (dia-mes-año): ")
-        # Validacion de la fecha
-        try:
-            fecha_str = datetime.datetime.strptime(fecha, '%d-%m-%Y')
-            break
-        except:
-            print("-> Formato de fecha incorrecto (dd-mm-yyyy)...")
-    producto["Fecha Creacion"] = fecha
+    fecha = datetime.datetime.now()
+    dia = "0"+str(fecha.day) if len(str(fecha.day)) == 1 else str(fecha.day)
+    mes = "0"+str(fecha.month) if len(str(fecha.month)) == 1 else str(fecha.month)
+    año = str(fecha.year)
+    producto["Fecha Creacion"] = dia + "-" + mes + "-" + año
+    producto["Fecha Modificacion"] = producto["Fecha Creacion"]
     return producto
 
 
@@ -40,7 +35,7 @@ def cargaDatos(lista: list[dict]) -> list[dict]:
             "Peso": 0,
             "Dimensiones": "",
             "Fecha Creacion": "",
-            "Fecha Modificacion": "Sin modificaciones"
+            "Fecha Modificacion": ""
         }
         aux = lineas.split(",")
         print("-> Agregando " + aux[0]+"...")

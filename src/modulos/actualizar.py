@@ -5,13 +5,13 @@ from datetime import datetime
 def actualizar(productos):
     # Indicar cual es el producto a modificar
     print(">>> Productos registrados...")
-    print("+" + "-"*172 + "+")
-    print("|I|       Nombre        |      Descripcion      |   Categoria   | Precio |       Imagen       |      SKU      | Cantidad |  Peso  | Dimension | Creacion |   Modificacion    | ")
-    print("+" + "-"*172 + "+")
+    print("+" + "-"*174 + "+")
+    print("| I |       Nombre        |      Descripcion      |   Categoria   | Precio |       Imagen       |      SKU      | Cantidad |  Peso  | Dimension | Creacion |   Modificacion    | ")
+    print("+" + "-"*174 + "+")
     for producto in range(len(productos)):
         time.sleep(0.5)
-        print("|{:2}|{:<21}|{:<23}|{:<15}|${:<7}|{:<20}|{:<15}|{:<10}|{:<8}|{:<11}|{:<10}|{:<18}|".format(producto, productos[producto]["Nombre"], productos[producto]["Descripcion"], productos[producto]["Categoria"], str(productos[producto]["Precio"]), productos[producto]["Imagen"], productos[producto]["SKU"], str(productos[producto]["Cantidad"]), str(productos[producto]["Peso"]), productos[producto]["Dimensiones"], productos[producto]["Fecha Creacion"], productos[producto]["Fecha Modificacion"]))
-        print("+" + "-"*172 + "+")
+        print("|{:3}|{:<21}|{:<23}|{:<15}|${:<7}|{:<20}|{:<15}|{:<10}|{:<8}|{:<11}|{:<10}|{:<18} |".format(producto, productos[producto]["Nombre"], productos[producto]["Descripcion"], productos[producto]["Categoria"], str(productos[producto]["Precio"]), productos[producto]["Imagen"], productos[producto]["SKU"], str(productos[producto]["Cantidad"]), str(productos[producto]["Peso"]), productos[producto]["Dimensiones"], productos[producto]["Fecha Creacion"], productos[producto]["Fecha Modificacion"]))
+        print("+" + "-"*174 + "+")
 
     while True: # Captura del indice del producto
 
@@ -91,17 +91,24 @@ def actualizar(productos):
                     break
 
         # Capturar la fecha de modificacion
-        while True:
-            fecha = input(
-                ">>> Ingrese fecha de modificacion del producto (dia-mes-año): ")
-            # Validacion de la fecha
-            try:
-                fecha_str = datetime.strptime(fecha, '%d-%m-%Y')
-                break
-            except:
-                print("-> Formato de fecha incorrecto (dd-mm-yyyy)...")
-        producto["Fecha Modificacion"] = fecha
+        fecha = datetime.now()
+        dia = "0"+str(fecha.day) if len(str(fecha.day)) == 1 else str(fecha.day)
+        mes = "0"+str(fecha.month) if len(str(fecha.month)) == 1 else str(fecha.month)
+        año = str(fecha.year)
+        producto["Fecha Modificacion"] = dia + "-" + mes + "-" + año
 
         # Guardar el producto modificado en la lista de productos
         productos[opcion] = producto
-        print("\n+-----------------+ Producto modificado exitosamente +-----------------+\n")
+        print("\n+-----------------+ Producto modificado exitosamente +-----------------+")
+        print(" Nombre: " + producto["Nombre"])
+        print(" Descripcion: " + producto["Descripcion"])
+        print(" Categoria: " + producto["Categoria"])
+        print(" Precio: " + str(producto["Precio"]))
+        print(" Imagen: " + str(producto["Imagen"]))
+        print(" SKU: " + producto["SKU"])
+        print(" Cantidad: " + str(producto["Cantidad"]))
+        print(" Peso: " + str(producto["Peso"]))
+        print(" Dimensiones: " + producto["Dimensiones"])
+        print(" Fecha Creacion: " + producto["Fecha Creacion"])
+        print(" Fecha Modificacion: " + producto["Fecha Modificacion"])
+        print("+------------------------------------------------------------------------+\n")
