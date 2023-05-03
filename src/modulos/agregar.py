@@ -1,5 +1,5 @@
 import modulos.auxiliar as auxiliar
-import datetime
+from datetime import datetime
 import time
 
 
@@ -10,9 +10,10 @@ def creacionProducto() -> None:
     print("Ingrese los siguientes datos para la creacion de su producto\n")
     producto = auxiliar.lecturaDatos()
 
-    fecha = datetime.datetime.now()
+    fecha = datetime.now()
     dia = "0"+str(fecha.day) if len(str(fecha.day)) == 1 else str(fecha.day)
-    mes = "0"+str(fecha.month) if len(str(fecha.month)) == 1 else str(fecha.month)
+    mes = "0"+str(fecha.month) if len(str(fecha.month)
+                                      ) == 1 else str(fecha.month)
     año = str(fecha.year)
     producto["Fecha Creacion"] = dia + "-" + mes + "-" + año
     producto["Fecha Modificacion"] = producto["Fecha Creacion"]
@@ -20,7 +21,7 @@ def creacionProducto() -> None:
 
 
 def cargaDatos(lista: list[dict]) -> list[dict]:
-    archivo = open("src/archivos/registros.csv", "r")
+    archivo = open("archivos/registros.csv", "r")
     print(">>> Cargando datos de prueba...")
     for lineas in archivo:
         time.sleep(0.5)

@@ -10,10 +10,11 @@ def actualizar(productos):
     print("+" + "-"*174 + "+")
     for producto in range(len(productos)):
         time.sleep(0.5)
-        print("|{:3}|{:<21}|{:<23}|{:<15}|${:<7}|{:<20}|{:<15}|{:<10}|{:<8}|{:<11}|{:<10}|{:<18} |".format(producto, productos[producto]["Nombre"], productos[producto]["Descripcion"], productos[producto]["Categoria"], str(productos[producto]["Precio"]), productos[producto]["Imagen"], productos[producto]["SKU"], str(productos[producto]["Cantidad"]), str(productos[producto]["Peso"]), productos[producto]["Dimensiones"], productos[producto]["Fecha Creacion"], productos[producto]["Fecha Modificacion"]))
+        print("|{:3}|{:<21}|{:<23}|{:<15}|${:<7}|{:<20}|{:<15}|{:<10}|{:<8}|{:<11}|{:<10}|{:<18} |".format(producto, productos[producto]["Nombre"], productos[producto]["Descripcion"], productos[producto]["Categoria"], str(
+            productos[producto]["Precio"]), productos[producto]["Imagen"], productos[producto]["SKU"], str(productos[producto]["Cantidad"]), str(productos[producto]["Peso"]), productos[producto]["Dimensiones"], productos[producto]["Fecha Creacion"], productos[producto]["Fecha Modificacion"]))
         print("+" + "-"*174 + "+")
 
-    while True: # Captura del indice del producto
+    while True:  # Captura del indice del producto
 
         try:
             opcion = int(
@@ -60,7 +61,8 @@ def actualizar(productos):
                         print("-> Informacion incorrecta...")
                 if op == 3 or op == 7:  # Validacion para los digitos
                     try:
-                        producto[atributos[op]] = float(producto[atributos[op]])
+                        producto[atributos[op]] = float(
+                            producto[atributos[op]])
                         break
                     except:
                         print("-> Informacion incorrecta...")
@@ -97,8 +99,10 @@ def actualizar(productos):
 
         # Capturar la fecha de modificacion
         fecha = datetime.now()
-        dia = "0"+str(fecha.day) if len(str(fecha.day)) == 1 else str(fecha.day)
-        mes = "0"+str(fecha.month) if len(str(fecha.month)) == 1 else str(fecha.month)
+        dia = "0"+str(fecha.day) if len(str(fecha.day)
+                                        ) == 1 else str(fecha.day)
+        mes = "0"+str(fecha.month) if len(str(fecha.month)
+                                          ) == 1 else str(fecha.month)
         año = str(fecha.year)
         producto["Fecha Modificacion"] = dia + "-" + mes + "-" + año
 
@@ -116,4 +120,5 @@ def actualizar(productos):
         print(" Dimensiones: " + producto["Dimensiones"])
         print(" Fecha Creacion: " + producto["Fecha Creacion"])
         print(" Fecha Modificacion: " + producto["Fecha Modificacion"])
-        print("+------------------------------------------------------------------------+\n")
+        print(
+            "+------------------------------------------------------------------------+\n")
