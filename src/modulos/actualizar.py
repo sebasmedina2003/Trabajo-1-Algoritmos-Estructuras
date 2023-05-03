@@ -52,13 +52,18 @@ def actualizar(productos):
             while True:
                 producto[atributos[op]] = input(
                     "Ingrese el valor con el que desea modificar el " + atributos[op]+": ")
-                if op == 3 or op == 6 or op == 7:  # Validacion para los digitos
+                if op == 6:  # Validacion para los digitos
                     try:
                         producto[atributos[op]] = int(producto[atributos[op]])
                         break
                     except:
                         print("-> Informacion incorrecta...")
-
+                if op == 3 or op == 7:  # Validacion para los digitos
+                    try:
+                        producto[atributos[op]] = float(producto[atributos[op]])
+                        break
+                    except:
+                        print("-> Informacion incorrecta...")
                 elif op == 5:  # Validacion para el SKU
                     aux = producto[atributos[op]].split("-")
                     if len(aux) == 3:

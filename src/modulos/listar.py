@@ -50,7 +50,8 @@ def listarProductos(lista: list[str]) -> None:
                 try:
                     fecha_desde = datetime.strptime(fecha_desde, '%d-%m-%Y').date()
                     fecha_hasta = datetime.strptime(fecha_hasta, '%d-%m-%Y').date()
-                    
+                    if (fecha_hasta < fecha_desde):
+                        print(int("a"))
                     break
                 except:
                     print("-> Formato de fecha incorrecto (dd-mm-yyyy)...")
@@ -101,7 +102,6 @@ def listarProductos(lista: list[str]) -> None:
                             lista_ordenada.append(lista[j]) # Almacenar en un vector los productos ordenados
                             break
             mostrarProductos(lista_ordenada)# Imprimir productos ordenados - salida formateada
-        
         elif opcion == 4:
             cantidad = heapsort(cantidad)
             for i in range(len(cantidad) ):
@@ -110,8 +110,7 @@ def listarProductos(lista: list[str]) -> None:
                         #print(str(i) + " " + str(lista[j]))
                         lista_ordenada.append(lista[j])
                         break
-            mostrarProductos(lista_ordenada)# Imprimir productos ordenados - salida formateada
-        
+            mostrarProductos(lista_ordenada)# Imprimir productos ordenados - salida formateada 
         elif opcion == 5: 
             lista_aux.clear()
             while True:
@@ -120,6 +119,8 @@ def listarProductos(lista: list[str]) -> None:
                 try:
                     fecha_desde = datetime.strptime(fecha_desde, '%d-%m-%Y').date()
                     fecha_hasta = datetime.strptime(fecha_hasta, '%d-%m-%Y').date()
+                    if (fecha_hasta < fecha_desde):
+                        print(int("a"))
                     break
                 except:
                     print("-> Formato de fecha incorrecto (dd-mm-yyyy)...")
