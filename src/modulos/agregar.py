@@ -20,7 +20,7 @@ def creacionProducto() -> None:
 
 
 def cargaDatos(lista: list[dict]) -> list[dict]:
-    archivo = open("archivos/registros.csv", "r")
+    archivo = open("src/archivos/registros.csv", "r")
     print(">>> Cargando datos de prueba...")
     for lineas in archivo:
         time.sleep(0.5)

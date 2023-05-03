@@ -11,7 +11,7 @@ def lecturaDatos() -> dict:
         "Peso": 0,
         "Dimensiones": "",
         "Fecha Creacion": "",
-        "Fecha Modificacion": "Sin modificaciones"
+        "Fecha Modificacion": ""
     }
     # Leemos los datos de consola
     while True : # Nombre del producto - Validacion cantidad de caracteres
