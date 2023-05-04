@@ -2,6 +2,12 @@ import modulos.actualizar as actualizar
 import modulos.agregar as agregar
 import modulos.listar as listar
 
+'''
+INTEGRANTES: 
+Marco De Freitas
+Giancarlos Hernáiz 
+Sebastián Medina
+'''
 
 def menu() -> None:
     # Funcion que muestra el menu principal, consta del bucle principal y la seleccion de opciones
