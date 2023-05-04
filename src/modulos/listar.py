@@ -52,8 +52,9 @@ def listarProductos(lista: list[str]) -> None:
         elif opcion == 2:
             lista_aux.clear()
             while True:
-                fecha_desde = input(">>> Fecha desde (dia-mes-año): ")
-                fecha_hasta = input(">>> Fecha hasta (dia-mes-año): ")
+                print(">>> Ingrese el rango de la fecha")
+                fecha_desde = input(">>> Fecha inicial (dia-mes-año): ")
+                fecha_hasta = input(">>> Fecha final (dia-mes-año):   ")
                 print()
                 try:
                     fecha_desde = datetime.strptime(
@@ -128,8 +129,10 @@ def listarProductos(lista: list[str]) -> None:
         elif opcion == 5:
             lista_aux.clear()
             while True:
-                fecha_desde = input(">>> Fecha desde (dia-mes-año): ")
-                fecha_hasta = input(">>> Fecha hasta (dia-mes-año): ")
+                print(">>> Ingrese el rango de la fecha:")
+                fecha_desde = input(">>> Fecha inicial (dia-mes-año): ")
+                fecha_hasta = input(">>> Fecha final (dia-mes-año):   ")
+                print()
                 try:
                     fecha_desde = datetime.strptime(
                         fecha_desde, '%d-%m-%Y').date()
