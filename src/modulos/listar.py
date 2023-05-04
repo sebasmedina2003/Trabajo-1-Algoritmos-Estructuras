@@ -39,20 +39,21 @@ def listarProductos(lista: list[str]) -> None:
     if not error:
         if opcion == 1:
             cantidad = quicksort(cantidad)
+            reps = []
             for i in range(len(cantidad)):
                 for j in range(len(lista)):
                     if cantidad[i] == lista[j]["Cantidad"]:
-                        # print(str(i) + " " + str(lista[j]))
+                        #print(str(i) + " " + str(lista[j]))
                         lista_ordenada.append(lista[j])
+                        reps.append(lista[j]["Nombre"])
                         break
             # Imprimir productos ordenados - salida formateada
             mostrarProductos(lista_ordenada)
         elif opcion == 2:
             lista_aux.clear()
             while True:
-                print(">>> Ingrese el rango de la fecha:")
-                fecha_desde = input(">>> Fecha inicial (dia-mes-año): ")
-                fecha_hasta = input(">>> Fecha final (dia-mes-año):   ")
+                fecha_desde = input(">>> Fecha desde (dia-mes-año): ")
+                fecha_hasta = input(">>> Fecha hasta (dia-mes-año): ")
                 print()
                 try:
                     fecha_desde = datetime.strptime(
@@ -105,31 +106,30 @@ def listarProductos(lista: list[str]) -> None:
                     fechas_creacion = shellsort(fechas_creacion, 1)
                 elif opcion == 2:
                     fechas_creacion = shellsort(fechas_creacion, 0)
-                for i in range(len(fechas_creacion)):
-                    for j in range(len(lista)):
+                for i in range(len(fechas_creacion) ):
+                    for j in range(len(lista) ):
                         if fechas_creacion[i] == datetime.strptime(lista[j]["Fecha Creacion"], '%d-%m-%Y').date():
-                            # print(str(i) + " " + str(lista[j]))
-                            # Almacenar en un vector los productos ordenados
-                            lista_ordenada.append(lista[j])
+                            #print(str(i) + " " + str(lista[j]))
+                            lista_ordenada.append(lista[j]) # Almacenar en un vector los productos ordenados
                             break
             # Imprimir productos ordenados - salida formateada
             mostrarProductos(lista_ordenada)
         elif opcion == 4:
             cantidad = heapsort(cantidad)
-            for i in range(len(cantidad)):
-                for j in range(len(lista)):
+            for i in range(len(cantidad) ):
+                for j in range(len(lista) ):
                     if cantidad[i] == lista[j]["Cantidad"]:
-                        # print(str(i) + " " + str(lista[j]))
+                        #print(str(i) + " " + str(lista[j]))
                         lista_ordenada.append(lista[j])
+                        reps.append(lista[j]["Nombre"])
                         break
             # Imprimir productos ordenados - salida formateada
             mostrarProductos(lista_ordenada)
         elif opcion == 5:
             lista_aux.clear()
             while True:
-                print(">>> Ingrese el rango de la fecha:")
-                fecha_desde = input(">>> Fecha inicial (dia-mes-año): ")
-                fecha_hasta = input(">>> Fecha final (dia-mes-año):   ")
+                fecha_desde = input(">>> Fecha desde (dia-mes-año): ")
+                fecha_hasta = input(">>> Fecha hasta (dia-mes-año): ")
                 try:
                     fecha_desde = datetime.strptime(
                         fecha_desde, '%d-%m-%Y').date()
@@ -146,7 +146,7 @@ def listarProductos(lista: list[str]) -> None:
                     fechas_rango.remove(fechas_creacion[i])
 
             '''Arreglo y condicionales'''
-            print("+---+ Opciones de listado +---+")
+            print("\n+---+ Opciones de listado +---+")
             print("| 1-. Dimensiones             |")
             print("| 2-. Antigüedad              |")
             print("+-----------------------------+")
@@ -158,7 +158,7 @@ def listarProductos(lista: list[str]) -> None:
                 error = True
                 print("-> No se ha ingresado un numero, seleccione una opcion valida\n")
             if not error:
-                print("+---+ Opciones de listado +---+")
+                print("\n+---+ Opciones de listado +---+")
                 print("| 1-. Ascendente              |")
                 print("| 2-. Descendente             |")
                 print("+-----------------------------+")
@@ -215,12 +215,11 @@ def listarProductos(lista: list[str]) -> None:
                             fechas_creacion = shellsort(fechas_rango, 1)
                         elif opcion == 2:
                             fechas_creacion = shellsort(fechas_rango, 0)
-                        for i in range(len(fechas_creacion)):
-                            for j in range(len(lista)):
-                                if fechas_creacion[i] == datetime.strptime(lista[j]["Fecha Creacion"], '%d-%m-%Y').date():
-                                    # print(str(i) + " " + str(lista[j]))
-                                    # Almacenar los productos ordenados en una lista
-                                    lista_ordenada.append(lista[j])
+                        for i in range(len(fechas_creacion) ):
+                            for j in range(len(lista) ):
+                                if fechas_creacion[i] ==  datetime.strptime(lista[j]["Fecha Creacion"], '%d-%m-%Y').date():
+                                    #print(str(i) + " " + str(lista[j]))
+                                    lista_ordenada.append(lista[j]) # Almacenar los productos ordenados en una lista
                                     break
                     # Mostrar los productos ordenados - salida formateada
                     mostrarProductos(lista_ordenada)
